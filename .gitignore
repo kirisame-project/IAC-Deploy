@@ -4,3 +4,5 @@
 Recognizer_volume/*
 FaissServer_volume/*
 Detector_volume/*
+
+!*/README.md
