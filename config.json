@@ -1,0 +1,17 @@
+{
+    "httpParams": {
+        "httpThreads": 10,
+        "listenIP": "localhost",
+        "port": 23333
+    },
+    "logConfigParams": {
+        "debugEnabled": false,
+        "infoEnabled": true,
+        "warningEnabled": false
+    },
+    "searchToolParams": {
+        "dataFilePath": "data.bin",
+        "dimension": 512,
+        "searchFactory": "IDMap,Flat"
+    }
+}

@@ -1,0 +1,31 @@
+version: '3'
+services:
+  Detector: 
+    container_name: gxu_iac_detector
+    image: registry.cn-hangzhou.aliyuncs.com/antinomy20001/gxu_access_control
+    restart: always
+    ports:
+      - "11451:11451"
+    command: /Detector/Detector
+
+  Recognizer:
+    container_name: gxu_iac_recognizer
+    image: awsdeeplearningteam/mxnet-model-server:1.0.0-mxnet-cpu
+    restart: always
+    ports:
+      - "11452:8080"
+      - "11453:8081"
+    volumes:
+      - ./Recognizer_volume:/file_swap
+    command: mxnet-model-server --start --model-store /file_swap --models model=model.mar
+
+  FaissServer:
+    container_name: gxu_iac_faissserver
+    image: registry.cn-hangzhou.aliyuncs.com/antinomy20001/gxu_access_control
+    restart: always
+    ports:
+      - "11454:23333"
+    volumes: 
+      - ./FaissServer_volume:/file_swap
+    working_dir: /file_swap
+    command: /FaissServer/FaissServer

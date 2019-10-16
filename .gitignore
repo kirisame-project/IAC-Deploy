@@ -1,0 +1,6 @@
+*/data.bin
+*.tar.gz
+
+Recognizer_volume/*
+FaissServer_volume/*
+Detector_volume/*
